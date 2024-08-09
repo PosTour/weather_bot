@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: bot
+  kafka:
+    bootstrapServers: kafka:9092
+    consumer:
+      topic: bot
+      group-id: group1
+      auto-offset-reset: earliest
+
+bot:
+  name: MeteoNotifierBot
+  token:
+
+url:
+  weather: http://weather:8080
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        loggerLevel: basic

@@ -25,9 +25,7 @@ public class RainPhenomCommand implements Command {
     @Override
     public List<Stage> getKnownStages() {
         return List.of(
-                Stage.CONFIRM_CREATION,
-                Stage.CONFIRM_REMOVAL,
-                Stage.AUTH_MAIN_MENU
+                Stage.CONFIRM_CREATION
         );
     }
 

@@ -1,14 +1,16 @@
-package ru.spring.weather.bot.flow.command;
+package ru.spring.weather.bot.flow.command.phenom.type;
 
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.spring.weather.bot.flow.EntryBot;
+import ru.spring.weather.bot.flow.command.Command;
 import ru.spring.weather.bot.flow.stage.Stage;
 import ru.spring.weather.bot.storage.ChatState;
 
 import java.util.List;
 
-public class HelpCommand implements Command {
-    public static final String NAME = "showhelp";
+public class HailPhenomCommand implements Command {
+
+    public static final String NAME = "hailphenom";
 
     @Override
     public String getName() {
@@ -17,27 +19,21 @@ public class HelpCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "ℹ️ Справка";
+        return "Град";
     }
 
     @Override
     public List<Stage> getKnownStages() {
         return List.of(
-                Stage.AUTH_MAIN_MENU,
-                Stage.NOT_AUTHORIZED
+                Stage.CONFIRM_CREATION,
+                Stage.CONFIRM_REMOVAL,
+                Stage.AUTH_MAIN_MENU
         );
     }
 
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
-        String regFlowInfo = chatState.isApproved() ?
-                """          
-                """ :
-                """
-                """;
-
-        sendTextMessage(chatState, regFlowInfo, sender);
-
-        Command.enterStage(chatState.getCurrentStage(), chatState, sender);
+        chatState.resetMenuMessageId();
+        Command.enterStage(Stage.CONFIRM_CREATION, chatState, sender);
     }
 }

@@ -43,9 +43,6 @@ public class ChatState {
     @Getter
     private boolean approved = false;
 
-    @Getter
-    private UUID employeeId;
-
     @JsonIgnore
     private final List<Update> updates = new ArrayList<>();
 
@@ -123,11 +120,6 @@ public class ChatState {
 
     public void setTrackedPhenoms(List<ViewPhenomDto> trackedPhenoms) {
         this.trackedPhenoms = trackedPhenoms;
-        getStorage().ifPresent(ChatStateMap::store);
-    }
-
-    public void setEmployeeId(UUID employeeId) {
-        this.employeeId = employeeId;
         getStorage().ifPresent(ChatStateMap::store);
     }
 

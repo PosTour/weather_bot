@@ -5,14 +5,13 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import ru.spring.weather.bot.api.PhenomFeignClient;
 import ru.spring.weather.bot.dto.UserDto;
 import ru.spring.weather.bot.flow.EntryBot;
 import ru.spring.weather.bot.flow.command.register.SendContactCommand;
 import ru.spring.weather.bot.flow.stage.Stage;
 import ru.spring.weather.bot.storage.ChatState;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -21,6 +20,7 @@ import java.util.regex.Pattern;
 public class UserInputCommand implements Command {
     private final Pattern CITY_PATTERN = Pattern.compile("[А-Я]\\w+");
     public static final String NAME = "###userinput$$$";
+    private final PhenomFeignClient phenomFeignClient;
 
     @Override
     public String getName() {
@@ -49,8 +49,7 @@ public class UserInputCommand implements Command {
                     chatState.setPhone(phoneNumber);
                     sendTextMessage(chatState, "Номер принят", sender);
 
-                    // TODO: Создание и регистрация пользователя
-
+                    phenomFeignClient.signUp(new UserDto(chatState.getChatId()));
                     chatState.setApproved(true);
 
                     Command.enterStage(chatState.isApproved() ?

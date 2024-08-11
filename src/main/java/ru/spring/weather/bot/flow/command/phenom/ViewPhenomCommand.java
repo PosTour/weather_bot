@@ -1,6 +1,8 @@
 package ru.spring.weather.bot.flow.command.phenom;
 
+import lombok.RequiredArgsConstructor;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import ru.spring.weather.bot.api.PhenomFeignClient;
 import ru.spring.weather.bot.flow.EntryBot;
 import ru.spring.weather.bot.flow.command.Command;
 import ru.spring.weather.bot.flow.stage.Stage;
@@ -8,9 +10,11 @@ import ru.spring.weather.bot.storage.ChatState;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 public class ViewPhenomCommand implements Command {
 
     public static final String NAME = "viewphenoms";
+    private final PhenomFeignClient phenomFeignClient;
 
     @Override
     public String getName() {
@@ -33,7 +37,7 @@ public class ViewPhenomCommand implements Command {
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
         chatState.resetMenuMessageId();
-        // TODO: Получение явлений пользователя
+        chatState.setTrackedPhenoms(phenomFeignClient.getAllPhenomsByChatId(chatState.getChatId()));
         var phenoms = chatState.getTrackedPhenoms();
         if (phenoms == null) {
             sendTextMessage(chatState, "Вы пока не добавляли явлений", sender);

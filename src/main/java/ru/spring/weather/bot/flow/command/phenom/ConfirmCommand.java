@@ -1,6 +1,7 @@
 package ru.spring.weather.bot.flow.command.phenom;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.spring.weather.bot.api.PhenomFeignClient;
 import ru.spring.weather.bot.dto.CreationPhenomDto;
@@ -13,6 +14,7 @@ import ru.spring.weather.bot.storage.ChatState;
 import java.util.List;
 import java.util.Objects;
 
+@Component
 @RequiredArgsConstructor
 public class ConfirmCommand implements Command {
 

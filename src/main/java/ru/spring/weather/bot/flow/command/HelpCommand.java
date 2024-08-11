@@ -1,5 +1,7 @@
 package ru.spring.weather.bot.flow.command;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.spring.weather.bot.flow.EntryBot;
 import ru.spring.weather.bot.flow.stage.Stage;
@@ -7,6 +9,8 @@ import ru.spring.weather.bot.storage.ChatState;
 
 import java.util.List;
 
+@Component
+@Slf4j
 public class HelpCommand implements Command {
     public static final String NAME = "showhelp";
 

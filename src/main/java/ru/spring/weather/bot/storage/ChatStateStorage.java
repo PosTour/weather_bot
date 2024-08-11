@@ -3,8 +3,6 @@ package ru.spring.weather.bot.storage;
 import org.springframework.stereotype.Component;
 import ru.spring.weather.bot.flow.stage.Stage;
 
-import java.util.UUID;
-
 @Component
 public class ChatStateStorage {
     private ChatStateMap states;

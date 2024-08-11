@@ -1,6 +1,7 @@
 package ru.spring.weather.bot.flow.command.phenom;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.spring.weather.bot.api.PhenomFeignClient;
 import ru.spring.weather.bot.flow.EntryBot;
@@ -10,6 +11,7 @@ import ru.spring.weather.bot.storage.ChatState;
 
 import java.util.List;
 
+@Component
 @RequiredArgsConstructor
 public class ViewPhenomCommand implements Command {
 

@@ -26,7 +26,6 @@ public class AbortInputFlowCommand implements Command {
     @Override
     public List<Stage> getKnownStages() {
         return List.of(
-                Stage.REG_NUMBER,
                 Stage.VIEW_PHENOMS,
                 Stage.ENTER_CITY,
                 Stage.CONFIRM_CREATION,
@@ -37,10 +36,6 @@ public class AbortInputFlowCommand implements Command {
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
         switch (chatState.getCurrentStage()) {
-            case REG_NUMBER -> {
-                chatState.resetMenuMessageId();
-                Command.enterStage(Stage.NOT_AUTHORIZED, chatState, sender);
-            }
             case VIEW_PHENOMS, ENTER_CITY -> {
                 chatState.resetMenuMessageId();
                 chatState.resetRequest();

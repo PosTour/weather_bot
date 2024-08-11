@@ -32,6 +32,7 @@ public class HailPhenomCommand implements Command {
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
         chatState.resetMenuMessageId();
+        chatState.setPhenomType("Hail");
         Command.enterStage(Stage.CONFIRM_CREATION, chatState, sender);
     }
 }

@@ -32,6 +32,7 @@ public class SleetPhenomCommand implements Command {
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
         chatState.resetMenuMessageId();
+        chatState.setPhenomType("Sleet");
         Command.enterStage(Stage.CONFIRM_CREATION, chatState, sender);
     }
 }

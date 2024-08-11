@@ -32,6 +32,7 @@ public class OvercastPhenomCommand implements Command {
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
         chatState.resetMenuMessageId();
+        chatState.setPhenomType("Overcast");
         Command.enterStage(Stage.CONFIRM_CREATION, chatState, sender);
     }
 }

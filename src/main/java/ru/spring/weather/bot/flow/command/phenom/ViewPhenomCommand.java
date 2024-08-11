@@ -40,7 +40,12 @@ public class ViewPhenomCommand implements Command {
             Command.enterStage(Stage.AUTH_MAIN_MENU, chatState, sender);
         } else {
             StringBuilder sb = new StringBuilder();
-            phenoms.forEach(phenom -> sb.append(phenom.type()));
+            for (int i = 0; i < phenoms.size(); i++) {
+                sb.append(i + 1)
+                    .append(" ")
+                    .append(phenoms.get(i).type())
+                    .append("\n");
+            }
 
             sendTextMessage(chatState, sb.toString(), sender);
             Command.enterStage(Stage.VIEW_PHENOMS, chatState, sender);

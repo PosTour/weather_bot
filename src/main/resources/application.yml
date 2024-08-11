@@ -13,7 +13,7 @@ bot:
   token:
 
 url:
-  weather: http://weather:8080
+  weather: http://localhost/api:8080
 
 feign:
   client:

@@ -13,18 +13,18 @@ import ru.spring.weather.bot.dto.ViewPhenomDto;
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(value = "phenomFeignClient", url = "")
+@FeignClient(value = "phenomFeignClient", url = "${url.weather}")
 public interface PhenomFeignClient {
-    @PostMapping(value = "")
+    @PostMapping(value = "/user/signup")
     ResponseEntity<Void> signUp(UserDto userDto);
 
-    @PostMapping(value = "")
+    @PostMapping(value = "/phenom/add")
     ResponseEntity<Void> addPhenom(CreationPhenomDto creationPhenomDto);
 
-    @GetMapping(value = "")
-    List<ViewPhenomDto> getAllPhenomsByChatId(@PathVariable("chat_id") long chatId);
+    @GetMapping(value = "/phenom/all/by/${chat_id}")
+    List<ViewPhenomDto> getAllPhenomsByChatId(@PathVariable ("chat_id") long chatId);
 
-    @DeleteMapping(value = "")
-    ResponseEntity<Void> deletePhenom(@PathVariable UUID id);
+    @DeleteMapping(value = "/phenom/delete/${id}")
+    ResponseEntity<Void> deletePhenom(@PathVariable ("id") UUID id);
 }
 

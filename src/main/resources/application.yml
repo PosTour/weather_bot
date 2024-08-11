@@ -4,7 +4,7 @@ spring:
   kafka:
     bootstrapServers: kafka:9092
     consumer:
-      topic: bot
+      topic: weather
       group-id: group1
       auto-offset-reset: earliest
 

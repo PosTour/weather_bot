@@ -35,7 +35,7 @@ public class ChatState {
     private List<ViewPhenomDto> trackedPhenoms;
 
     @Getter
-    private Integer phenomForRemoval;
+    private UUID phenomForRemoval;
 
     @Getter
     private int menuMessageId = -1;
@@ -111,7 +111,7 @@ public class ChatState {
         getStorage().ifPresent(ChatStateMap::store);
     }
 
-    public void setPhenomForRemoval(Integer phenomForRemoval) {
+    public void setPhenomForRemoval(UUID phenomForRemoval) {
         this.phenomForRemoval = phenomForRemoval;
         getStorage().ifPresent(ChatStateMap::store);
     }

@@ -28,12 +28,4 @@ public class ChatStateStorage {
         }
         return state;
     }
-
-    public ChatState getStateByEmployeeId(UUID employeeId) {
-        if (states == null) {
-            states = ChatStateMap.restore();
-        }
-        return states.values().stream().filter(state -> employeeId.equals(state.getEmployeeId())).findFirst()
-                .orElse(null);
-    }
 }

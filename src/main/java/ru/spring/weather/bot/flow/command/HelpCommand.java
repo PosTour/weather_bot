@@ -31,9 +31,20 @@ public class HelpCommand implements Command {
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
         String regFlowInfo = chatState.isApproved() ?
-                """          
-                """ :
                 """
+            Бот предоставляет возможность получать уведомления о приближении выбранных погодных явлений
+            
+            Для отслеживания нового явления нажмите "Добавить новое явление"
+            
+            Для просмотра отслеживаемых явлений и их удаления нажмите "Посмотреть отслеживаемые явления"
+            """
+                :
+                """
+                Бот предоставляет возможность получать уведомления о приближении выбранных погодных явлений
+                
+                *Для входа или регистрации вам необходимо:*
+                1. Нажать "Регистрация"
+                2. Предоставить свой номер телефона.
                 """;
 
         sendTextMessage(chatState, regFlowInfo, sender);

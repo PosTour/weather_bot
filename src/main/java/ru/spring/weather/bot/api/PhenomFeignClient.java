@@ -21,10 +21,10 @@ public interface PhenomFeignClient {
     @PostMapping(value = "/phenom/add")
     ResponseEntity<Void> addPhenom(CreationPhenomDto creationPhenomDto);
 
-    @GetMapping(value = "/phenom/all/by/${chat_id}")
+    @GetMapping(value = "/phenom/all/by/{chat_id}")
     List<ViewPhenomDto> getAllPhenomsByChatId(@PathVariable ("chat_id") long chatId);
 
-    @DeleteMapping(value = "/phenom/delete/${id}")
+    @DeleteMapping(value = "/phenom/delete/{id}")
     ResponseEntity<Void> deletePhenom(@PathVariable ("id") UUID id);
 }
 

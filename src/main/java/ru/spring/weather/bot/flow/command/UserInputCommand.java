@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 @Component
 @RequiredArgsConstructor
 public class UserInputCommand implements Command {
-    private final Pattern CITY_PATTERN = Pattern.compile("[А-Я]\\w+");
+    private final Pattern CITY_PATTERN = Pattern.compile("[А-Я][а-я]+");
     public static final String NAME = "###userinput$$$";
     private final PhenomFeignClient phenomFeignClient;
 
@@ -71,7 +71,7 @@ public class UserInputCommand implements Command {
                 } else {
                     sendValidationMessage(
                             chatState,
-                            "Некорректный ввод. Попробуйте еще раз",
+                            "Некорректный ввод. Название города должно быть на русском и начинаться с большой буквы",
                             sender
                     );
                     reenterStage(chatState, sender);

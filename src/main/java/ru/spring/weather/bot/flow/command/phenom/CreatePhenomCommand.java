@@ -27,7 +27,7 @@ public class CreatePhenomCommand implements Command {
     @Override
     public List<Stage> getKnownStages() {
         return List.of(
-                Stage.ENTER_CITY
+                Stage.AUTH_MAIN_MENU
         );
     }
 

@@ -27,7 +27,7 @@ public class RainPhenomCommand implements Command {
     @Override
     public List<Stage> getKnownStages() {
         return List.of(
-                Stage.CONFIRM_CREATION
+                Stage.CREATE_PHENOM
         );
     }
 

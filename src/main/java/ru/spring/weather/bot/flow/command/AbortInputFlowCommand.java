@@ -36,7 +36,7 @@ public class AbortInputFlowCommand implements Command {
     @Override
     public void acceptMessage(List<String> entries, ChatState chatState, EntryBot sender) throws TelegramApiException {
         switch (chatState.getCurrentStage()) {
-            case VIEW_PHENOMS, ENTER_CITY -> {
+            case VIEW_PHENOMS, ENTER_CITY, CONFIRM_REMOVAL -> {
                 chatState.resetMenuMessageId();
                 chatState.resetRequest();
                 Command.enterStage(Stage.AUTH_MAIN_MENU, chatState, sender);
@@ -45,11 +45,6 @@ public class AbortInputFlowCommand implements Command {
                 chatState.resetMenuMessageId();
                 chatState.resetRequest();
                 Command.enterStage(Stage.CREATE_PHENOM, chatState, sender);
-            }
-            case CONFIRM_REMOVAL -> {
-                chatState.resetMenuMessageId();
-                chatState.resetRequest();
-                Command.enterStage(Stage.VIEW_PHENOMS, chatState, sender);
             }
         }
     }

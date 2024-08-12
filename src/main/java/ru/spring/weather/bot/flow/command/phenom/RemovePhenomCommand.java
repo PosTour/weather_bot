@@ -27,7 +27,7 @@ public class RemovePhenomCommand implements Command {
     @Override
     public List<Stage> getKnownStages() {
         return List.of(
-                Stage.REMOVE_PHENOM
+                Stage.VIEW_PHENOMS
         );
     }
 

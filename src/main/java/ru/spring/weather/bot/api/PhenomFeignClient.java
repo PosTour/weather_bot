@@ -15,16 +15,16 @@ import java.util.UUID;
 
 @FeignClient(value = "phenomFeignClient", url = "${url.weather}")
 public interface PhenomFeignClient {
-    @PostMapping(value = "/user/signup")
+    @PostMapping(value = "/api/user/signup")
     ResponseEntity<Void> signUp(UserDto userDto);
 
-    @PostMapping(value = "/phenom/add")
+    @PostMapping(value = "/api/phenom/add")
     ResponseEntity<Void> addPhenom(CreationPhenomDto creationPhenomDto);
 
-    @GetMapping(value = "/phenom/all/by/{chat_id}")
+    @GetMapping(value = "/api/phenom/all/by/{chat_id}")
     List<ViewPhenomDto> getAllPhenomsByChatId(@PathVariable ("chat_id") long chatId);
 
-    @DeleteMapping(value = "/phenom/delete/{id}")
+    @DeleteMapping(value = "/api/phenom/delete/{id}")
     ResponseEntity<Void> deletePhenom(@PathVariable ("id") UUID id);
 }
 

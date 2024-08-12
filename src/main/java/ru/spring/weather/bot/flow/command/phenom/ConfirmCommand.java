@@ -35,8 +35,7 @@ public class ConfirmCommand implements Command {
     public List<Stage> getKnownStages() {
         return List.of(
                 Stage.CONFIRM_CREATION,
-                Stage.CONFIRM_REMOVAL,
-                Stage.AUTH_MAIN_MENU
+                Stage.CONFIRM_REMOVAL
         );
     }
 

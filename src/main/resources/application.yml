@@ -13,7 +13,7 @@ bot:
   token:
 
 url:
-  weather: http://localhost/api:8080
+  weather: http://localhost:8082
 
 feign:
   client:
@@ -21,3 +21,6 @@ feign:
       default:
         connectTimeout: 5000
         loggerLevel: basic
+
+server:
+  port: 8081

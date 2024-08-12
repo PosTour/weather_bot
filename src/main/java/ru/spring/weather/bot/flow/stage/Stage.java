@@ -66,7 +66,7 @@ public enum Stage {
             InputType.TEXT
     ),
     CONFIRM_REMOVAL(
-            "Вы уверены, что не хотите отслеживать это явление?",
+            "Вы уверены, что хотите перестать отслеживать это явление?",
             InputType.NONE,
             ConfirmCommand.NAME,
             AbortInputFlowCommand.NAME

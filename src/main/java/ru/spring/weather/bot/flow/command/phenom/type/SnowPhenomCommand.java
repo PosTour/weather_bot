@@ -21,7 +21,7 @@ public class SnowPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Снег";
+        return "Снег \uD83C\uDF28\uFE0F";
     }
 
     @Override

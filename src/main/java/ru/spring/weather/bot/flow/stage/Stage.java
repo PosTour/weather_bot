@@ -26,7 +26,7 @@ public enum Stage {
             AbortInputFlowCommand.NAME
     ),
     AUTH_MAIN_MENU(
-            "\uD83D\uDCF1 Добро пожаловать в \"МетеоБот!\"",
+            "Добро пожаловать в \"МетеоБот!\"",
             InputType.NONE,
             CreatePhenomCommand.NAME,
             ViewPhenomCommand.NAME,
@@ -50,7 +50,7 @@ public enum Stage {
             AbortInputFlowCommand.NAME
     ),
     CONFIRM_CREATION(
-            "Подтвердите, что хотите отслеживать это явление",
+            "✅Подтвердите, что хотите отслеживать это явление",
             InputType.NONE,
             ConfirmCommand.NAME,
             AbortInputFlowCommand.NAME
@@ -66,7 +66,7 @@ public enum Stage {
             InputType.TEXT
     ),
     CONFIRM_REMOVAL(
-            "Вы уверены, что хотите перестать отслеживать это явление?",
+            "✅Вы уверены, что хотите перестать отслеживать это явление?",
             InputType.NONE,
             ConfirmCommand.NAME,
             AbortInputFlowCommand.NAME

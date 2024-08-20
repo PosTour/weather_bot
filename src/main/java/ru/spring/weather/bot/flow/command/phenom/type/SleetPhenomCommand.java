@@ -21,7 +21,7 @@ public class SleetPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Слякоть";
+        return "Слякоть ❄\uFE0F\uD83D\uDCA7";
     }
 
     @Override

@@ -21,7 +21,7 @@ public class RainPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Дождь";
+        return "Дождь \uD83C\uDF27\uFE0F";
     }
 
     @Override

@@ -21,7 +21,7 @@ public class ThunderstormPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Гроза";
+        return "Гроза \uD83C\uDF29\uFE0F";
     }
 
     @Override

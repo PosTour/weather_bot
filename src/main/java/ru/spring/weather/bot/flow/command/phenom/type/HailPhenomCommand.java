@@ -21,7 +21,7 @@ public class HailPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Град";
+        return "Град ❄\uFE0F\uD83D\uDCA6";
     }
 
     @Override

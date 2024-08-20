@@ -21,7 +21,7 @@ public class OvercastPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Пасмурная погода";
+        return "Пасмурная погода \uD83C\uDF25\uFE0F";
     }
 
     @Override

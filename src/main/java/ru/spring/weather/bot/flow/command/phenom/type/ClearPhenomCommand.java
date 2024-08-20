@@ -21,7 +21,7 @@ public class ClearPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Ясная погода";
+        return "Ясная погода ☀\uFE0F";
     }
 
     @Override

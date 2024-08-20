@@ -21,7 +21,7 @@ public class ShowersPhenomCommand implements Command {
 
     @Override
     public String getLabel() {
-        return "Ливень";
+        return "Ливень ⛈\uFE0F";
     }
 
     @Override

@@ -18,7 +18,8 @@ import java.util.regex.Pattern;
 @Component
 @RequiredArgsConstructor
 public class UserInputCommand implements Command {
-    private final Pattern CITY_PATTERN = Pattern.compile("[А-Я][а-я]+");
+    private final Pattern CITY_PATTERN_DASH = Pattern.compile("^[А-Я][а-яё]*(-[А-Я][а-яё]*)*$");
+    private final Pattern CITY_PATTERN_SPACE = Pattern.compile("^[А-Я][а-яё]*( [А-Я][а-яё]*)*$");
     public static final String NAME = "###userinput$$$";
     private final PhenomFeignClient phenomFeignClient;
 
@@ -64,14 +65,15 @@ public class UserInputCommand implements Command {
                 }
             }
             case ENTER_CITY -> {
-                if (entry != null && CITY_PATTERN.matcher(entry).matches()) {
+                if (entry != null && (CITY_PATTERN_DASH.matcher(entry).matches() || CITY_PATTERN_SPACE.matcher(entry).matches())) {
                     chatState.setCity(entry);
 
                     Command.enterStage(Stage.CREATE_PHENOM, chatState, sender);
                 } else {
                     sendValidationMessage(
                             chatState,
-                            "Некорректный ввод. Название города должно быть на русском и начинаться с большой буквы",
+                            "Некорректный ввод. Название города должно быть на русском и каждое слово," +
+                                    " что оно содержит, должно начинаться с большой буквы. Попробуйте еще раз",
                             sender
                     );
                     reenterStage(chatState, sender);

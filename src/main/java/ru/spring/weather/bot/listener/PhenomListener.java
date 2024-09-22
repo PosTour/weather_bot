@@ -28,14 +28,14 @@ public class PhenomListener {
 
         String message;
         switch (notification.phenomType()) {
-            case("Clear") -> message = "Завтра в " + notification.city() + " ожидается ясная погода";
-            case("Hail") -> message = "Завтра в " + notification.city() + " ожидается град. Будьте осторожны";
-            case("Overcast") -> message = "Завтра в " + notification.city() + " ожидается пасмурная погода";
-            case("Rain") -> message = "Завтра в " + notification.city() + " ожидается дождь. Не забудьте зонт";
-            case("Showers") -> message = "Завтра в " + notification.city() + " ожидаются ливни. Не забудьте зонт";
-            case("Sleet") -> message = "Завтра в " + notification.city() + " ожидается слякоть";
-            case("Snow") -> message = "Завтра в " + notification.city() + " ожидается выпадение снега";
-            case("Thunderstorm") -> message = "Завтра в " + notification.city() + " ожидается гроза";
+            case("Clear") -> message = "Завтра в " + notification.city() + " ожидается ясная погода ☀️";
+            case("Hail") -> message = "Завтра в " + notification.city() + " ожидается град. Будьте осторожны ❄️💦";
+            case("Overcast") -> message = "Завтра в " + notification.city() + " ожидается пасмурная погода 🌥️";
+            case("Rain") -> message = "Завтра в " + notification.city() + " ожидается дождь. Не забудьте зонт 🌧️";
+            case("Showers") -> message = "Завтра в " + notification.city() + " ожидаются ливни. Не забудьте зонт ⛈️";
+            case("Sleet") -> message = "Завтра в " + notification.city() + " ожидается слякоть ❄️💧";
+            case("Snow") -> message = "Завтра в " + notification.city() + " ожидается выпадение снега 🌨️";
+            case("Thunderstorm") -> message = "Завтра в " + notification.city() + " ожидается гроза 🌩️";
             default -> {
                 logger.error("Неизвестное погодное явление");
                 return;

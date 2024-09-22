@@ -12,7 +12,7 @@
 Для запуска:
 
 1. Клонируйте репозиторий: git clone https://github.com/PosTour/weather_bot.git
-2. Создайте бота и получите токен: https://core.telegram.org/bots#botfather
+2. Создайте бота и получите токен: https://t.me/BotFather
 3. Внесите токен в поле bot.token файла application.yml (путь: src/main/resources/application.yml)
 4. Соберите образ: ./mvnw spring-boot:build-image (или воспользуйтесь окном инструментов IDEA:
    Maven -> weather -> Plugins -> spring-boot -> spring-boot:build-image).
